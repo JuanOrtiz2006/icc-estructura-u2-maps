@@ -37,7 +37,7 @@ public class Ejercicios {
         }
         for (char c : str2.toCharArray()) {
             if (!charCount.containsKey(c) || charCount.get(c) == 0) {
-                return false; // Caracter no encontrado o frecuencia agotada
+                return false;
             }
             charCount.put(c, charCount.get(c) - 1);
         }
@@ -97,6 +97,20 @@ public class Ejercicios {
      * Output: true
      */
     public boolean sonAnagramas(String palabra1, String palabra2) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (palabra1.length() != palabra2.length()) {
+            return false; // Longitudes diferentes no pueden ser anagramas
+        }
+        HashMap<Character, Integer> charCount = new HashMap<>();
+        for (char c : palabra1.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+        for (char c : palabra2.toCharArray()) {
+            if (!charCount.containsKey(c) || charCount.get(c) == 0) {
+                return false; // Caracter no encontrado o frecuencia agotada
+            }
+            charCount.put(c, charCount.get(c) - 1);
+        }
+
+        return true;
     }
 }

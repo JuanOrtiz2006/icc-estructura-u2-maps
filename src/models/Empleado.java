@@ -37,6 +37,11 @@ public class Empleado implements Comparable<Empleado> {
         if (obj == null || getClass() != obj.getClass()) return false;
         Empleado other = (Empleado) obj;
         if (id != other.id) return false;
+         if (position == null) {
+            if (other.position != null)
+                return false;
+        } else if (!position.equals(other.position))
+            return false;
         return true;
     }
 
