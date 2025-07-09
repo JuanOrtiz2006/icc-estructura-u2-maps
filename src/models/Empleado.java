@@ -5,6 +5,9 @@ public class Empleado implements Comparable<Empleado> {
     private String name;
     private String position;
 
+    public Empleado(int id) {
+        this.id = id;
+    }
     public Empleado(int id, String name, String position) {
         this.id = id;
         this.name = name;
@@ -34,11 +37,10 @@ public class Empleado implements Comparable<Empleado> {
         if (obj == null || getClass() != obj.getClass()) return false;
         Empleado other = (Empleado) obj;
         if (id != other.id) return false;
-        if (name == null) {
-            if (other.name != null) return false;
-        } else if (!name.equals(other.name)) return false;
         return true;
     }
+
+
 
     @Override
     public int hashCode() {
@@ -53,10 +55,6 @@ public class Empleado implements Comparable<Empleado> {
     @Override
     public int compareTo(Empleado arg0) {
         int cmp = Integer.compare(this.id, arg0.id);
-        if (cmp != 0) {
-            return cmp;
-        }
-        cmp = this.name.compareTo(arg0.name);
         if (cmp != 0) {
             return cmp;
         }
