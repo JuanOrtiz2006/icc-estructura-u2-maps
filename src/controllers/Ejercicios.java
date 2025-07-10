@@ -29,7 +29,7 @@ public class Ejercicios {
      */
     public static boolean areAnagrams(String str1, String str2) {
         if (str1.length() != str2.length()) {
-            return false; // Longitudes diferentes no pueden ser anagramas
+            return false; 
         }
         HashMap<Character, Integer> charCount = new HashMap<>();
         for (char c : str1.toCharArray()) {
@@ -98,7 +98,7 @@ public class Ejercicios {
      */
     public boolean sonAnagramas(String palabra1, String palabra2) {
         if (palabra1.length() != palabra2.length()) {
-            return false; // Longitudes diferentes no pueden ser anagramas
+            return false; 
         }
         HashMap<Character, Integer> charCount = new HashMap<>();
         for (char c : palabra1.toCharArray()) {
@@ -106,7 +106,7 @@ public class Ejercicios {
         }
         for (char c : palabra2.toCharArray()) {
             if (!charCount.containsKey(c) || charCount.get(c) == 0) {
-                return false; // Caracter no encontrado o frecuencia agotada
+                return false;
             }
             charCount.put(c, charCount.get(c) - 1);
         }
